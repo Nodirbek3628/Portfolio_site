@@ -87,3 +87,22 @@ body {
     height: 200px;
     object-fit: cover;
 }
+.alert {
+    z-index: 1050;
+    position: relative;
+}
+.auto-hide-alert {
+    transition: opacity 0.5s ease;
+}
+.navbar a i {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar a:hover i {
+    color: #0d6efd;
+    transform: scale(1.15);
+}
+
+.navbar a[aria-label="Telegram"]:hover i {
+    color: #229ED9;
+}

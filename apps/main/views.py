@@ -1,8 +1,8 @@
-from django.shortcuts import render,HttpResponse,get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
-from .models import Project,Contact
+from .models import Project, Contact
 
 
 def home(request):
@@ -10,14 +10,13 @@ def home(request):
     return render(request, 'main/home.html', {'projects': projects})
 
 
-
 def contact_view(request):
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-        
-        
+
+        # DB ga saqlash
         Contact.objects.create(
             full_name=full_name,
             email=email,
@@ -52,10 +51,14 @@ def contact_view(request):
             fail_silently=False,
         )
 
+        # ✅ SUCCESS MESSAGE
         messages.success(
             request,
-            "Xabaringiz yuborildi. Tez orada siz bilan bog‘lanaman."
+             "Xabaringiz qabul qilindi. Tez orada siz bilan bog‘lanaman."
         )
+
+        # ✅ ENG MUHIM QATOR
+        return redirect('contact')
 
     return render(request, 'main/contact.html')
 
@@ -68,15 +71,7 @@ def projects_view(request):
             tech.strip() for tech in project.technologies.split(',')
         ]
 
-    return render(
-        request,
-        'main/projects.html',
-        {'projects': projects}
-    )
-
-
-# def contact_view(request):
-#     return render(request, 'main/contact.html')
+    return render(request, 'main/projects.html', {'projects': projects})
 
 
 def project_detail(request, slug):
