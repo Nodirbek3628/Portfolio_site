@@ -1,0 +1,89 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<section class="section home-hero">
+    <div class="container text-center">
+
+        <!-- ABOUT -->
+        <div class="hero-about mb-5">
+            <h1 class="fw-bold display-5 mb-2">
+                Nodirbek Abloqulov
+            </h1>
+
+            <h5 class="text-primary mb-4">
+                Backend dasturchi (Python / Django)
+            </h5>
+
+            <p class="mx-auto text-secondary" style="max-width: 720px;">
+             Django va FastAPI texnologiyalaridan foydalangan holda
+ishlab chiqarishga tayyor, xavfsiz va masshtablanuvchi
+backend tizimlar yarataman.
+REST API dizayni, ORM optimizatsiyasi va
+toza backend arxitektura qurishda
+amaliy tajribaga egaman.
+
+            </p>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="hero-skills mb-5">
+            <h4 class="fw-semibold mb-4">
+                Texnologiyalar
+            </h4>
+
+            <div class="tech-stack d-flex justify-content-center flex-wrap gap-3">
+                <span class="badge bg-primary">Python</span>
+                <span class="badge bg-success">Django</span>
+                <span class="badge bg-info">DRF</span>
+                <span class="badge bg-dark">FastAPI</span>
+                <span class="badge bg-secondary">SQLAlchemy ORM</span>
+                <span class="badge bg-warning text-dark">PostgreSQL</span>
+                <span class="badge bg-primary">Telegram Bot</span>
+                <span class="badge bg-dark">Git</span>
+                <span class="badge bg-secondary">GitHub</span>
+                <span class="badge bg-info text-dark">Docker</span>
+                <span class="badge bg-dark">Linux</span>
+            </div>
+        </div>
+
+        <!-- ACTIONS -->
+<!-- ACTIONS -->
+<div class="hero-actions mt-4">
+    <div class="action-buttons d-flex justify-content-center flex-wrap gap-3">
+
+        <a href="{% url 'projects' %}" class="btn btn-primary px-4">
+            Loyihalarni ko‘rish
+        </a>
+
+        <a href="{% url 'contact' %}" class="btn btn-outline-light px-4">
+            Bog‘lanish
+        </a>
+
+        <a href="{% static 'files/Nodirbek_Abloqulov_Resume.pdf' %}"
+           class="btn btn-outline-info px-4"
+           download>
+            Resume yuklab olish
+        </a>
+
+    </div>
+</div>
+
+
+
+    </div>
+</section>
+
+
+<!-- PROJECTS SECTION -->
+<section id="projects" class="section home-projects">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-5">
+            Loyihalar
+        </h2>
+    </div>
+</section>
+
+{% endblock %}

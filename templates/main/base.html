@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}Nodirbek Abloqulov | Backend Developer{% endblock %}</title>
+
+    <!-- SEO META -->
+    <meta name="description"
+          content="Nodirbek Abloqulov — Backend Developer specializing in Python, Django, REST APIs.">
+    <meta name="keywords"
+          content="Backend Developer, Python, Django, DRF, REST API, Portfolio">
+    <meta name="author" content="Nodirbek Abloqulov">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nodirbek Abloqulov | Backend Developer">
+    <meta property="og:description"
+          content="Portfolio and resume of Backend Developer specializing in Python & Django.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <!-- BRAND + SOCIAL -->
+        <div class="d-flex align-items-center gap-3">
+            <a class="navbar-brand fw-bold mb-0" href="{% url 'home' %}">
+                Nodirbek
+            </a>
+
+            <a href="https://github.com/Nodirbek3628"
+               target="_blank"
+               class="text-light"
+               title="GitHub">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/nodirbek-abloqulov"
+               target="_blank"
+               class="text-light"
+               title="LinkedIn">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+        </div>
+
+        <!-- TOGGLER -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- NAV LINKS -->
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-1
+                    {% if request.path == '/' %}active{% endif %}"
+                       href="{% url 'home' %}">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-1
+                    {% if '/projects' in request.path %}active{% endif %}"
+                       href="{% url 'projects' %}">
+                        <i class="fa-solid fa-folder-open"></i>
+                        Projects
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-1
+                    {% if '/contact' in request.path %}active{% endif %}"
+                       href="{% url 'contact' %}">
+                        <i class="fa-solid fa-envelope"></i>
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="container my-5">
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success text-center">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}{% endblock %}
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-light text-center py-4 mt-5">
+    <div class="mb-2">
+        <a href="https://github.com/Nodirbek3628"
+           target="_blank"
+           class="text-light me-3 fs-5">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/nodirbek-abloqulov"
+           target="_blank"
+           class="text-light fs-5">
+            <i class="fab fa-linkedin"></i>
+        </a>
+    </div>
+
+    <div class="small">
+        © 2026 Nodirbek Abloqulov · Backend Developer
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

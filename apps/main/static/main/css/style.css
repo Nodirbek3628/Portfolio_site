@@ -1,0 +1,89 @@
+body {
+    background: linear-gradient(
+        180deg,
+        #0b132b 0%,
+        #020617 100%
+    );
+    color: #e5e7eb;
+}
+.navbar .nav-link i {
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+.navbar .nav-link:hover i {
+    opacity: 1;
+}
+/* NAVBAR ACTIVE STATE */
+.navbar .nav-link {
+    color: #cbd5f5;
+    transition: all .2s ease;
+}
+
+.navbar .nav-link.active {
+    color: #38bdf8 !important;
+    font-weight: 600;
+}
+
+.navbar .nav-link.active i {
+    color: #38bdf8;
+}
+
+.navbar .nav-link:hover {
+    color: #e0f2fe;
+}
+
+/* PROJECTS SECTION FIX */
+.home-projects {
+    margin-top: 120px;   /* Hero bilan aniq ajratadi */
+    padding-bottom: 120px;
+}
+
+/* Glass card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.35);
+}
+@media (max-width: 576px) {
+    .home-projects {
+        margin-top: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+/* PROJECTS HERO */
+.projects-hero {
+    padding: 140px 20px 100px;
+    background: radial-gradient(
+        circle at top,
+        #0f172a 0%,
+        #020617 70%
+    );
+}
+
+/* PROJECT CARD */
+.project-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,.45);
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}

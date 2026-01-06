@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+
+<section class="projects-hero">
+    <h1 class="fw-bold">{{ project.title }}</h1>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        {% if project.image %}
+            <img src="{{ project.image.url }}"
+                 class="img-fluid rounded mb-4">
+        {% endif %}
+
+        <p class="text-secondary fs-5">
+            {{ project.description }}
+        </p>
+
+        <!-- TECHNOLOGIES -->
+        <div class="d-flex flex-wrap gap-2 my-4">
+            {% for tech in project.technologies.split(',') %}
+                <span class="badge bg-info text-dark">
+                    {{ tech|trim }}
+                </span>
+            {% endfor %}
+        </div>
+
+        <!-- LINKS -->
+        <div class="d-flex gap-3">
+            {% if project.github_url %}
+                <a href="{{ project.github_url }}"
+                   class="btn btn-outline-light"
+                   target="_blank">GitHub</a>
+            {% endif %}
+            {% if project.live_url %}
+                <a href="{{ project.live_url }}"
+                   class="btn btn-primary"
+                   target="_blank">Live</a>
+            {% endif %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

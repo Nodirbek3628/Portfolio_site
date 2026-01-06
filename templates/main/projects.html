@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Loyihalar{% endblock %}
+<div class="d-flex flex-wrap gap-1 mb-2">
+    {% for tech in project.tech_list %}
+        <span class="badge bg-secondary small">
+            {{ tech }}
+        </span>
+    {% endfor %}
+</div>
+
+
+{% block content %}
+
+<!-- HERO -->
+<section class="projects-hero">
+    <h1 class="display-4 fw-bold">My Projects</h1>
+    <p class="text-secondary mt-3">
+        Backend tizimla, REST API’lar va real loyihalar
+    </p>
+</section>
+
+<!-- PROJECTS GRID -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+
+            {% for project in projects %}
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card h-100">
+
+                    {% if project.image %}
+                        <img src="{{ project.image.url }}"
+                             class="project-img"
+                             alt="{{ project.title }}">
+                    {% endif %}
+
+                    <div class="p-4">
+                        <h5 class="fw-semibold">{{ project.title }}</h5>
+
+                        <p class="text-secondary small mt-2">
+                            {{ project.description|truncatechars:120 }}
+                        </p>
+
+                        <div class="mt-3 d-flex gap-2">
+                            {% if project.github_url %}
+                                <a href="{{ project.github_url }}"
+                                   target="_blank"
+                                   class="btn btn-sm btn-outline-light">
+                                    GitHub
+                                </a>
+                            {% endif %}
+                            {% if project.live_url %}
+                                <a href="{{ project.live_url }}"
+                                   target="_blank"
+                                   class="btn btn-sm btn-primary">
+                                    Live
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
