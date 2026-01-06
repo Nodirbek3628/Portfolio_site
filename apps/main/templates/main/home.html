@@ -64,11 +64,13 @@ amaliy tajribaga egaman.
             Bog‘lanish
         </a>
 
-        <a href="{% static 'files/Nodirbek_Abloqulov_Resume.pdf' %}"
-           class="btn btn-outline-info px-4"
-           download>
-            Resume yuklab olish
-        </a>
+        {% load static %}
+
+<a href="{% static 'main/files/Nodirbek_Abloqulov_Resume.pdf' %}"
+   class="btn btn-outline-info px-4"
+   download>
+    Resume yuklab olish
+</a>
 
     </div>
 </div>
