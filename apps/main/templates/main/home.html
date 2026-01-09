@@ -1,5 +1,6 @@
 {% extends 'main/base.html' %}
-{% load static %}
+{% load static i18n %}
+
 {% block title %}Home{% endblock %}
 
 {% block content %}
@@ -8,39 +9,38 @@
     <div class="container text-center">
 
         <!-- ABOUT -->
-        <div class="hero-about mb-5">
+        <header class="hero-about mb-5">
             <h1 class="fw-bold mb-2 hero-title">
-
                 Nodirbek Abloqulov
             </h1>
 
-            <h5 class="text-primary mb-4">
+            <h2 class="text-primary mb-4">
                 Backend dasturchi (Python / Django)
-            </h5>
+            </h2>
 
-            <p class="mx-auto text-secondary" style="max-width: 720px;">
-             Django va FastAPI texnologiyalaridan foydalangan holda
-ishlab chiqarishga tayyor, xavfsiz va masshtablanuvchi
-backend tizimlar yarataman.
-REST API dizayni, ORM optimizatsiyasi va
-toza backend arxitektura qurishda
-amaliy tajribaga egaman.
-
+            <p class="mx-auto text-secondary hero-description">
+                Django va FastAPI texnologiyalaridan foydalangan holda
+                ishlab chiqarishga tayyor, xavfsiz va masshtablanuvchi
+                backend tizimlar yarataman.
+                <br>
+                REST API dizayni, ORM optimizatsiyasi va
+                toza backend arxitektura qurishda
+                amaliy tajribaga egaman.
             </p>
-        </div>
+        </header>
 
         <!-- SKILLS -->
-        <div class="hero-skills mb-5">
-            <h4 class="fw-semibold mb-4">
+        <section class="hero-skills mb-5">
+            <h3 class="fw-semibold mb-4">
                 Texnologiyalar
-            </h4>
+            </h3>
 
             <div class="tech-stack d-flex justify-content-center flex-wrap gap-3">
                 <span class="badge bg-primary">Python</span>
                 <span class="badge bg-success">Django</span>
                 <span class="badge bg-info">DRF</span>
                 <span class="badge bg-dark">FastAPI</span>
-                <span class="badge bg-secondary">SQLAlchemy ORM</span>
+                <span class="badge bg-secondary">SQLAlchemy</span>
                 <span class="badge bg-warning text-dark">PostgreSQL</span>
                 <span class="badge bg-primary">Telegram Bot</span>
                 <span class="badge bg-dark">Git</span>
@@ -48,45 +48,30 @@ amaliy tajribaga egaman.
                 <span class="badge bg-info text-dark">Docker</span>
                 <span class="badge bg-dark">Linux</span>
             </div>
-        </div>
+        </section>
 
         <!-- ACTIONS -->
-<!-- ACTIONS -->
-<div class="hero-actions mt-4">
-    <div class="action-buttons d-flex justify-content-center flex-wrap gap-3 mobile-actions">
+        <nav class="hero-actions mt-4">
+            <div class="d-flex justify-content-center flex-wrap gap-3">
 
+                <a href="{% url 'projects' %}" class="btn btn-primary px-4">
+                    Loyihalarni ko‘rish
+                </a>
 
-        <a href="{% url 'projects' %}" class="btn btn-primary px-4">
-            Loyihalarni ko‘rish
-        </a>
-
-        <a href="{% url 'contact' %}" class="btn btn-outline-light px-4">
-            Bog‘lanish
-        </a>
-
-        {% load static %}
-
-<a href="{% static 'main/files/Nodirbek_Abloqulov_Resume.pdf' %}"
+                <a href="{% url 'contact' %}" class="btn btn-outline-light px-4">
+                    Bog‘lanish
+                </a>
+<a href="{% static 'main/files/Ablokulov_Resume.pdf' %}"
    class="btn btn-outline-info px-4"
    download>
     Resume yuklab olish
 </a>
 
-    </div>
-</div>
 
+            </div>
+        </nav>
 
-
-    </div>
-</section>
-
-
-<!-- PROJECTS SECTION -->
-<section id="projects" class="section home-projects">
-    <div class="container text-center">
-        <h2 class="fw-bold mb-5">
-            Loyihalar
-        </h2>
     </div>
 </section>
+
 {% endblock %}
